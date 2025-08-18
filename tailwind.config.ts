@@ -52,16 +52,12 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				sidebar: {
-					DEFAULT: 'hsl(var(--sidebar-background))',
-					foreground: 'hsl(var(--sidebar-foreground))',
-					primary: 'hsl(var(--sidebar-primary))',
-					'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
-					accent: 'hsl(var(--sidebar-accent))',
-					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
-					border: 'hsl(var(--sidebar-border))',
-					ring: 'hsl(var(--sidebar-ring))'
-				}
+				// Custom portfolio colors
+				'learner-text': 'hsl(var(--learner-text))',
+				'nav-button': 'hsl(var(--nav-button))',
+				'nav-button-hover': 'hsl(var(--nav-button-hover))',
+				'skill-icon-bg': 'hsl(var(--skill-icon-bg))',
+				'skill-icon-border': 'hsl(var(--skill-icon-border))'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
