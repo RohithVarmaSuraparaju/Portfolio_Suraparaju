@@ -20,16 +20,16 @@ const ContactSection = () => {
     },
     {
       title: "GitHub",
-      value: "github.com/rohithvarma",
+      value: "github.com/RohithVarmaSuraparaju",
       icon: <Github className="h-6 w-6" />,
-      action: () => window.open("https://github.com/rohithvarma", "_blank"),
+      action: () => window.open("https://github.com/RohithVarmaSuraparaju", "_blank"),
       buttonText: "View GitHub"
     },
     {
       title: "Phone",
-      value: "+1 (555) 123-4567",
+      value: "+1 (913) 260-2522",
       icon: <Phone className="h-6 w-6" />,
-      action: () => window.open("tel:+15551234567", "_blank"),
+      action: () => window.open("tel:+19132602522", "_blank"),
       buttonText: "Call Me"
     }
   ];

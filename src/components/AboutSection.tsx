@@ -1,20 +1,16 @@
 import SkillCard from "./SkillCard";
+import { useState, useEffect } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Download } from "lucide-react";
 
 const AboutSection = () => {
+  const [currentSkillIndex, setCurrentSkillIndex] = useState(0);
+  
   const programmingLanguages = [
     { name: "Python", icon: "🐍" },
     { name: "C++", icon: "⚡" },
     { name: "Java", icon: "☕" }
-  ];
-
-  const dataAnalysisTools = [
-    { name: "EDA", icon: "📊" },
-    { name: "Numpy", icon: "🔢" },
-    { name: "Pandas", icon: "🐼" },
-    { name: "Scikit-learn", icon: "🤖" }
   ];
 
   const deepLearningFrameworks = [
@@ -23,7 +19,7 @@ const AboutSection = () => {
     { name: "Keras", icon: "⚡" }
   ];
 
-  const nlpTools = [
+  const nlpAndTextProcessing = [
     { name: "NLTK", icon: "📝" },
     { name: "spaCy", icon: "🌐" },
     { name: "GPT", icon: "🤖" },
@@ -32,70 +28,31 @@ const AboutSection = () => {
     { name: "NER", icon: "🏷️" }
   ];
 
-  const generativeAI = [
-    { name: "OpenAI LLMs", icon: "🧠" },
-    { name: "Hugging Face LLMs", icon: "🤗" },
-    { name: "LangChain", icon: "⛓️" },
-    { name: "RAG", icon: "🔍" },
-    { name: "GANs", icon: "🎨" },
-    { name: "VAEs", icon: "🔄" },
-    { name: "Diffusion Models", icon: "💫" }
-  ];
-
-  const promptEngineering = [
-    { name: "Zero-shot Prompting", icon: "🎯" },
-    { name: "Few-shot Prompting", icon: "📚" },
-    { name: "Chain-of-Thought", icon: "🧠" },
-    { name: "Meta Prompting", icon: "🎭" }
-  ];
-
-  const vectorDatabases = [
-    { name: "Pinecone", icon: "🌲" },
-    { name: "Chroma", icon: "🎨" },
-    { name: "Weaviate", icon: "🕸️" }
-  ];
-
-  const statisticalAnalysis = [
-    { name: "Regression", icon: "📈" },
-    { name: "Clustering", icon: "🔗" },
-    { name: "Time Series", icon: "📅" },
-    { name: "A/B Testing", icon: "🧪" },
-    { name: "Outlier Detection", icon: "🔍" }
-  ];
-
-  const mlOps = [
-    { name: "Docker", icon: "🐳" },
-    { name: "Kubernetes", icon: "⚙️" },
-    { name: "AWS SageMaker", icon: "☁️" }
-  ];
-
-  const engineering = [
-    { name: "Apache Spark", icon: "⚡" },
-    { name: "Kafka", icon: "📡" },
-    { name: "ETL pipelines", icon: "🔄" }
-  ];
-
-  const cloudPlatforms = [
+  const cloudAndDevOps = [
     { name: "AWS", icon: "☁️" },
     { name: "Azure", icon: "🔷" },
-    { name: "GCP", icon: "🌐" }
+    { name: "Docker", icon: "🐳" },
+    { name: "Kubernetes", icon: "⚙️" }
   ];
 
-  const databases = [
+  const databasesAndStorage = [
     { name: "SQL", icon: "🗃️" },
-    { name: "NoSQL", icon: "🍃" }
+    { name: "NoSQL", icon: "🍃" },
+    { name: "Pinecone", icon: "🌲" },
+    { name: "Chroma", icon: "🎨" }
   ];
 
-  const visualization = [
+  const webFrameworks = [
+    { name: "React", icon: "⚛️" },
+    { name: "FastAPI", icon: "🚀" },
+    { name: "Flask", icon: "🌶️" }
+  ];
+
+  const dataVisualization = [
     { name: "Power BI", icon: "📊" },
     { name: "Matplotlib", icon: "📈" },
     { name: "Seaborn", icon: "🌊" },
     { name: "Plotly", icon: "📉" }
-  ];
-
-  const versionControl = [
-    { name: "Git", icon: "🌳" },
-    { name: "GitHub", icon: "🐙" }
   ];
 
   const softSkills = [
@@ -103,8 +60,26 @@ const AboutSection = () => {
     { name: "Project Management", icon: "📋" },
     { name: "Problem Solving", icon: "🧩" },
     { name: "Communication", icon: "💬" },
-    { name: "KPI-Driven Decisions", icon: "📊" }
+    { name: "Leadership", icon: "👑" }
   ];
+
+  const allSkills = [
+    ...programmingLanguages,
+    ...deepLearningFrameworks,
+    ...nlpAndTextProcessing,
+    ...cloudAndDevOps,
+    ...databasesAndStorage,
+    ...webFrameworks,
+    ...dataVisualization,
+    ...softSkills
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSkillIndex((prev) => (prev + 1) % allSkills.length);
+    }, 1500);
+    return () => clearInterval(interval);
+  }, []);
 
   const projects = [
     {
@@ -119,7 +94,7 @@ const AboutSection = () => {
     }
   ];
 
-  const SkillSection = ({ title, skills, emoji }: { title: string; skills: any[]; emoji: string }) => (
+  const SkillSection = ({ title, emoji, skills }: { title: string; emoji: string; skills: Array<{ name: string; icon: string }> }) => (
     <div className="mb-12">
       <h3 className="text-2xl font-bold mb-6 text-foreground flex items-center gap-3">
         <span className="text-3xl">{emoji}</span>
@@ -134,46 +109,77 @@ const AboutSection = () => {
   );
 
   return (
-    <section id="about" className="py-20 px-6 bg-muted/50">
-      <div className="max-w-7xl mx-auto">
+    <section id="about" className="py-20 px-6 bg-background">
+      <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
-            AI & Data Science
-          </h2>
-          <h3 className="text-2xl md:text-3xl font-semibold mb-6 text-secondary">
-            developer
-          </h3>
-          <p className="text-xl text-muted-foreground mb-8">
-            Hello, Welcome to my Portfolio.
-          </p>
-          <div className="text-6xl mb-8">🧠</div>
-          <p className="text-lg text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-            Master's student in Data Science and Artificial Intelligence with expertise in Python, C++, and Java. 
-            Skilled in machine learning, deep learning, and NLP using TensorFlow, PyTorch, Keras, NLTK, spaCy, GPT, 
-            and sentiment analysis. Proficient in generative AI tools including OpenAI LLMs, Hugging Face LLMs, 
-            LangChain, RAG, GANs, VAEs, and diffusion models. Passion for building scalable, ethical, and data-driven 
-            AI solutions for impactful business decision-making.
-          </p>
-          <div className="text-4xl mt-8">🐍</div>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">About Me</h2>
         </div>
 
-        <SkillSection title="Programming Languages" skills={programmingLanguages} emoji="💻" />
-        <SkillSection title="Data Analysis & Libraries" skills={dataAnalysisTools} emoji="📊" />
-        <SkillSection title="Deep Learning Frameworks" skills={deepLearningFrameworks} emoji="🧠" />
-        <SkillSection title="Natural Language Processing" skills={nlpTools} emoji="🗣️" />
-        <SkillSection title="Generative AI Skills" skills={generativeAI} emoji="🤖" />
-        <SkillSection title="Prompt Engineering" skills={promptEngineering} emoji="💡" />
-        <SkillSection title="Vector Databases" skills={vectorDatabases} emoji="🗄️" />
-        <SkillSection title="Statistical Analysis & Modeling" skills={statisticalAnalysis} emoji="📈" />
-        <SkillSection title="MLOps & Model Deployment" skills={mlOps} emoji="🚀" />
-        <SkillSection title="Engineering & Pipelines" skills={engineering} emoji="⚙️" />
-        <SkillSection title="Cloud Platforms" skills={cloudPlatforms} emoji="☁️" />
-        <SkillSection title="Database Systems" skills={databases} emoji="🗃️" />
-        <SkillSection title="Visualization Tools" skills={visualization} emoji="📊" />
-        <SkillSection title="Version Control Systems" skills={versionControl} emoji="🌳" />
-        <SkillSection title="Soft Skills" skills={softSkills} emoji="🤝" />
+        {/* Bio and Skills Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+          {/* Bio Section - Left Side */}
+          <div className="cert-card p-8 rounded-lg">
+            <h3 className="text-2xl font-bold mb-4 text-foreground">AI/ML Engineer & Researcher</h3>
+            <div className="space-y-4 text-muted-foreground">
+              <p>
+                Passionate about pushing the boundaries of artificial intelligence and machine learning. 
+                I specialize in developing innovative AI solutions that solve real-world problems.
+              </p>
+              <p>
+                With expertise spanning deep learning, natural language processing, and cloud technologies, 
+                I bring a comprehensive approach to AI development.
+              </p>
+              <p>
+                Currently focused on advancing the field through research and practical applications 
+                in areas like computer vision, NLP, and distributed systems.
+              </p>
+              <div className="mt-6">
+                <h4 className="text-lg font-semibold text-foreground mb-2">Education</h4>
+                <p>Master's in Data Science and Artificial Intelligence</p>
+              </div>
+              <div className="mt-4">
+                <h4 className="text-lg font-semibold text-foreground mb-2">Focus Areas</h4>
+                <ul className="list-disc list-inside space-y-1">
+                  <li>Machine Learning & Deep Learning</li>
+                  <li>Natural Language Processing</li>
+                  <li>Computer Vision</li>
+                  <li>Generative AI & LLMs</li>
+                </ul>
+              </div>
+            </div>
+          </div>
 
-        <div className="text-center mb-16">
+          {/* Animated Skills - Right Side */}
+          <div className="flex flex-col items-center justify-center">
+            <h3 className="text-2xl font-bold mb-8 text-foreground">Featured Skills</h3>
+            <div className="relative w-64 h-64 flex items-center justify-center">
+              <div className="absolute inset-0 rounded-full border-2 border-primary/30 animate-spin"></div>
+              <div className="skill-card-large p-8 rounded-full text-center w-48 h-48 flex flex-col items-center justify-center">
+                <div className="text-6xl mb-2">{allSkills[currentSkillIndex]?.icon}</div>
+                <p className="text-sm font-medium text-foreground">
+                  {allSkills[currentSkillIndex]?.name}
+                </p>
+              </div>
+            </div>
+            <p className="text-sm text-muted-foreground mt-4 text-center">
+              Skills rotating every 1.5 seconds
+            </p>
+          </div>
+        </div>
+
+        {/* Skills Grid */}
+        <div className="space-y-12">
+          <SkillSection title="Programming Languages" emoji="💻" skills={programmingLanguages} />
+          <SkillSection title="Deep Learning Frameworks" emoji="🧠" skills={deepLearningFrameworks} />
+          <SkillSection title="NLP & Text Processing" emoji="📝" skills={nlpAndTextProcessing} />
+          <SkillSection title="Cloud & DevOps" emoji="☁️" skills={cloudAndDevOps} />
+          <SkillSection title="Databases & Storage" emoji="🗄️" skills={databasesAndStorage} />
+          <SkillSection title="Web Frameworks" emoji="🌐" skills={webFrameworks} />
+          <SkillSection title="Data Visualization" emoji="📊" skills={dataVisualization} />
+          <SkillSection title="Soft Skills" emoji="🤝" skills={softSkills} />
+        </div>
+
+        <div className="text-center mb-16 mt-16">
           <Button 
             size="lg" 
             className="bg-primary hover:bg-primary/90 text-primary-foreground"

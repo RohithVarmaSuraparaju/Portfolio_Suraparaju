@@ -1,7 +1,18 @@
 import rohithAvatar from "@/assets/rohith-avatar.png";
 import { Code, Database } from "lucide-react";
+import { useState, useEffect } from "react";
 
 const HeroSection = () => {
+  const roles = ["learner", "programmer", "developer", "ai enthusiast"];
+  const [currentRole, setCurrentRole] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentRole((prev) => (prev + 1) % roles.length);
+    }, 2000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section id="profile" className="min-h-screen flex flex-col items-center justify-center hero-gradient px-6 relative overflow-hidden">
       {/* Background decorative elements */}
@@ -13,7 +24,9 @@ const HeroSection = () => {
       </div>
       
       <div className="text-center max-w-4xl mx-auto relative z-10">
-        <p className="text-learner-text text-lg mb-4 font-medium glow-text">I'm a learner</p>
+        <p className="text-learner-text text-lg mb-4 font-medium glow-text">
+          I'm a <span className="dynamic-text">{roles[currentRole]}</span>
+        </p>
         
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight">
           <span className="text-foreground">My name is</span>

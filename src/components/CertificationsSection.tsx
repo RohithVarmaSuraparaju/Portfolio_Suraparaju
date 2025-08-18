@@ -1,4 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Award } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 
 const CertificationsSection = () => {
@@ -48,12 +49,17 @@ const CertificationsSection = () => {
   return (
     <section id="certifications" className="py-20 px-6 bg-background">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 text-foreground">
-          Certifications
-        </h2>
-        <p className="text-xl text-muted-foreground text-center mb-16">
-          Professional achievements and continuous learning in AI & Data Science
-        </p>
+        <div className="text-center mb-16">
+          <div className="flex items-center justify-center gap-3 mb-6">
+            <Award className="h-12 w-12 text-primary" />
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground">
+              Certifications
+            </h2>
+          </div>
+          <p className="text-xl text-muted-foreground">
+            Professional achievements and continuous learning in AI & Data Science
+          </p>
+        </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {certifications.map((cert, index) => (
