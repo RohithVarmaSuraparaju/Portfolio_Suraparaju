@@ -14,39 +14,65 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section id="profile" className="min-h-screen flex flex-col items-center justify-center hero-gradient px-6 relative overflow-hidden">
-      {/* Background decorative elements */}
-      <div className="absolute top-1/4 left-1/4 opacity-20">
-        <Code size={100} className="text-primary animate-pulse" />
+    <section id="profile" className="min-h-screen flex items-center justify-center relative parallax-bg overflow-hidden">
+      {/* Floating Decorative Elements */}
+      <div className="absolute top-20 left-20 text-6xl text-primary/30 floating">
+        <Code className="hover-glow" />
       </div>
-      <div className="absolute bottom-1/4 right-1/4 opacity-20">
-        <Database size={100} className="text-secondary animate-pulse" />
+      <div className="absolute bottom-20 right-20 text-6xl text-primary/30 floating">
+        <Database className="hover-glow" />
+      </div>
+      <div className="absolute top-1/3 right-1/4 text-4xl text-secondary/20 floating">
+        ⚡
+      </div>
+      <div className="absolute bottom-1/3 left-1/4 text-4xl text-accent/20 floating">
+        🚀
       </div>
       
-      <div className="text-center max-w-4xl mx-auto relative z-10">
-        <p className="text-learner-text text-lg mb-4 font-medium glow-text">
-          I'm a <span className="dynamic-text">{roles[currentRole]}</span>
-        </p>
+      {/* Gradient Orbs */}
+      <div className="absolute top-1/4 left-1/3 w-32 h-32 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-full blur-3xl animate-pulse"></div>
+      <div className="absolute bottom-1/4 right-1/3 w-40 h-40 bg-gradient-to-r from-accent/20 to-primary/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
+      
+      <div className="text-center px-6 z-10 glass-card p-12 max-w-4xl mx-4">
+        <div className="mb-8">
+          <h3 className="text-2xl md:text-3xl text-muted-foreground mb-6">
+            I'm a{" "}
+            <span className="dynamic-text text-accent font-bold text-3xl md:text-4xl">
+              {roles[currentRole]}
+            </span>
+          </h3>
+          <h1 className="text-6xl md:text-8xl font-bold mb-8 leading-tight">
+            <span className="name-gradient block">Rohith Varma</span>
+            <span className="name-gradient block">Suraparaju</span>
+          </h1>
+          <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            Transforming ideas into intelligent solutions through 
+            <span className="glow-text"> AI & Data Science</span>
+          </p>
+        </div>
         
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight">
-          <span className="text-foreground">My name is</span>
-          <br />
-          <span className="name-gradient">Rohith Varma Suraparaju</span>
-        </h1>
-        
-        <div className="relative w-48 h-48 mx-auto mb-8">
-          <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary to-secondary p-1 animate-spin">
-            <div className="w-full h-full rounded-full bg-background flex items-center justify-center">
-              <img 
-                src={rohithAvatar} 
-                alt="Rohith Varma Suraparaju" 
-                className="w-40 h-40 rounded-full object-cover"
-              />
+        {/* Enhanced Avatar Section */}
+        <div className="flex justify-center items-center">
+          <div className="relative group">
+            <div className="absolute -inset-4 bg-gradient-to-r from-primary via-secondary to-accent rounded-full blur opacity-30 group-hover:opacity-50 transition duration-1000 group-hover:duration-200 animate-pulse"></div>
+            <img 
+              src={rohithAvatar} 
+              alt="Rohith Varma" 
+              className="relative w-36 h-36 md:w-44 md:h-44 rounded-full object-cover border-4 border-primary/50 shadow-2xl transform transition-all duration-500 group-hover:scale-110 group-hover:rotate-3"
+            />
+            <div className="absolute -bottom-2 -right-2 text-5xl animate-bounce hover-scale">
+              👨‍💻
             </div>
+            <div className="absolute top-0 left-0 w-full h-full rounded-full border-2 border-primary/30 animate-ping"></div>
           </div>
         </div>
         
-        <div className="text-6xl mb-8 animate-bounce">👨‍💻</div>
+        {/* Call to Action */}
+        <div className="mt-12">
+          <button className="glass-card px-8 py-4 text-lg font-semibold text-primary hover-lift hover-glow transition-all duration-300">
+            Explore My Journey
+          </button>
+        </div>
       </div>
     </section>
   );

@@ -63,33 +63,53 @@ const CertificationsSection = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {certifications.map((cert, index) => (
-            <Card key={index} className="cert-card">
-              <CardHeader>
-                <CardTitle className="text-xl text-foreground">{cert.title}</CardTitle>
-                <div className="flex justify-between items-center">
-                  <span className="text-primary font-semibold">{cert.provider}</span>
-                  <span className="text-muted-foreground">{cert.date}</span>
+            <div key={index} className="glass-card p-8 rounded-lg hover-lift group relative overflow-hidden">
+              {/* Gradient accent line */}
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-secondary to-accent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+              
+              {/* Floating badge */}
+              <div className="absolute top-4 right-4 w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center floating">
+                <Award className="w-6 h-6 text-primary" />
+              </div>
+              
+              <div className="mb-6">
+                <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
+                  {cert.title}
+                </h3>
+                <div className="flex justify-between items-center mb-4">
+                  <span className="text-primary font-semibold text-lg flex items-center gap-2">
+                    🏢 {cert.provider}
+                  </span>
+                  <span className="text-muted-foreground bg-primary/10 px-3 py-1 rounded-full text-sm">
+                    📅 {cert.date}
+                  </span>
                 </div>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground mb-4">{cert.description}</p>
-                
-                <div className="mb-4">
-                  <h4 className="text-sm font-semibold text-foreground mb-2">Skills Acquired:</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {cert.skills.map((skill, skillIndex) => (
-                      <Badge key={skillIndex} variant="secondary" className="text-xs">
-                        {skill}
-                      </Badge>
-                    ))}
-                  </div>
+              </div>
+              
+              <p className="text-muted-foreground mb-6 leading-relaxed group-hover:text-foreground/80 transition-colors">
+                {cert.description}
+              </p>
+              
+              <div className="mb-6">
+                <h4 className="text-sm font-semibold text-foreground mb-3 flex items-center gap-2">
+                  🎯 Skills Acquired:
+                </h4>
+                <div className="flex flex-wrap gap-3">
+                  {cert.skills.map((skill, skillIndex) => (
+                    <div key={skillIndex} className="glass-card px-3 py-2 text-xs font-medium text-primary hover-scale cursor-pointer">
+                      {skill}
+                    </div>
+                  ))}
                 </div>
-                
-                <p className="text-xs text-muted-foreground">
-                  Credential ID: {cert.credentialId}
+              </div>
+              
+              <div className="flex items-center justify-between">
+                <p className="text-xs text-muted-foreground flex items-center gap-2">
+                  🆔 Credential ID: <span className="font-mono text-primary">{cert.credentialId}</span>
                 </p>
-              </CardContent>
-            </Card>
+                <div className="w-3 h-3 bg-primary/30 rounded-full animate-pulse"></div>
+              </div>
+            </div>
           ))}
         </div>
         

@@ -6,7 +6,7 @@
 
 @layer base {
   :root {
-    /* Dark Portfolio Theme */
+    /* Next-Level Dark Portfolio Theme */
     --background: 222 47% 11%;
     --foreground: 210 40% 98%;
 
@@ -35,9 +35,34 @@
     --input: 222 47% 20%;
     --ring: 200 100% 50%;
 
-    --radius: 0.75rem;
+    --radius: 1rem;
 
-    /* Custom portfolio colors */
+    /* Advanced gradient system */
+    --gradient-primary: linear-gradient(135deg, hsl(200 100% 50%) 0%, hsl(263 50% 60%) 50%, hsl(300 91% 60%) 100%);
+    --gradient-secondary: linear-gradient(45deg, hsl(222 47% 15%) 0%, hsl(222 47% 20%) 100%);
+    --gradient-glass: linear-gradient(135deg, hsla(200 100% 50% / 0.1) 0%, hsla(263 50% 60% / 0.05) 100%);
+    --gradient-hover: linear-gradient(135deg, hsl(200 100% 55%) 0%, hsl(263 50% 65%) 50%, hsl(300 91% 65%) 100%);
+    --gradient-aurora: linear-gradient(135deg, hsl(200 100% 50%), hsl(263 50% 60%), hsl(300 91% 60%), hsl(195 100% 50%));
+    
+    /* Glass morphism variables */
+    --glass-bg: hsla(222 47% 15% / 0.6);
+    --glass-border: hsla(200 100% 50% / 0.2);
+    --glass-shadow: 0 8px 32px hsla(200 100% 50% / 0.1);
+    --glass-backdrop: blur(20px) saturate(180%);
+    
+    /* Advanced shadows and effects */
+    --shadow-glow: 0 0 40px hsla(200 100% 50% / 0.4);
+    --shadow-elegant: 0 20px 60px hsla(0 0% 0% / 0.2);
+    --shadow-card: 0 15px 35px hsla(200 100% 50% / 0.15);
+    --shadow-floating: 0 25px 50px hsla(0 0% 0% / 0.1);
+    --shadow-inner: inset 0 1px 3px hsla(200 100% 50% / 0.1);
+    
+    /* Animation system */
+    --transition-smooth: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --transition-elastic: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    
+    /* Legacy support */
     --hero-gradient-start: 222 47% 11%;
     --hero-gradient-end: 222 84% 4.9%;
     --learner-text: 195 100% 50%;
@@ -48,79 +73,284 @@
     --nav-button: 222 47% 20%;
     --nav-button-hover: 222 47% 25%;
     --nav-button-border: 195 100% 50%;
-    
-    /* Animations */
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --glow-effect: 0 0 30px hsl(var(--primary) / 0.3);
   }
 
 }
 
-/* Custom Portfolio Styles */
+/* Next-Level Portfolio Styles */
 @layer utilities {
+  /* Hero section enhancements */
   .hero-gradient {
-    background: linear-gradient(135deg, hsl(var(--hero-gradient-start)), hsl(var(--hero-gradient-end)));
+    background: var(--gradient-aurora);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-gradient::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient-glass);
+    backdrop-filter: var(--glass-backdrop);
+    pointer-events: none;
   }
 
   .name-gradient {
-    background: linear-gradient(135deg, hsl(var(--name-gradient-start)), hsl(var(--name-gradient-end)));
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 20px hsla(200 100% 50% / 0.3));
+    animation: textGlow 3s ease-in-out infinite alternate;
+  }
+
+  /* Glass morphism cards */
+  .glass-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    backdrop-filter: var(--glass-backdrop);
+    border-radius: var(--radius);
+    transition: var(--transition-bounce);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .glass-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, hsla(200 100% 50% / 0.2), transparent);
+    transition: left 0.6s;
+  }
+
+  .glass-card:hover::before {
+    left: 100%;
+  }
+
+  .glass-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: var(--shadow-floating);
+    border-color: hsla(200 100% 50% / 0.4);
+  }
+
+  /* Enhanced skill cards */
+  .skill-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: var(--glass-backdrop);
+    transition: var(--transition-bounce);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .skill-card:hover {
+    transform: translateY(-6px) rotate(2deg);
+    box-shadow: var(--shadow-glow);
+    border-color: hsla(200 100% 50% / 0.6);
+  }
+
+  .skill-card-large {
+    background: var(--glass-bg);
+    border: 2px solid var(--glass-border);
+    backdrop-filter: var(--glass-backdrop);
+    transition: var(--transition-elastic);
+    box-shadow: var(--shadow-card);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .skill-card-large::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(transparent, hsla(200 100% 50% / 0.1), transparent);
+    animation: rotate 4s linear infinite;
+    pointer-events: none;
+  }
+
+  .skill-card-large:hover {
+    transform: translateY(-8px) scale(1.05);
+    box-shadow: var(--shadow-floating);
+  }
+
+  /* Navigation enhancements */
+  .nav-button {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: var(--glass-backdrop);
+    transition: var(--transition-bounce);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .nav-button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, hsla(200 100% 50% / 0.3) 0%, transparent 70%);
+    transition: all 0.4s ease;
+    transform: translate(-50%, -50%);
+  }
+
+  .nav-button:hover::before {
+    width: 300px;
+    height: 300px;
+  }
+
+  .nav-button:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-glow);
+    border-color: hsla(200 100% 50% / 0.8);
+  }
+
+  /* Certificate cards */
+  .cert-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: var(--glass-backdrop);
+    transition: var(--transition-smooth);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cert-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--gradient-primary);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+    transform-origin: left;
+  }
+
+  .cert-card:hover::before {
+    transform: scaleX(1);
+  }
+
+  .cert-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-card);
+    border-color: hsla(200 100% 50% / 0.3);
+  }
+
+  /* Text effects */
+  .glow-text {
+    color: hsl(var(--primary));
+    text-shadow: 
+      0 0 10px hsla(200 100% 50% / 0.5),
+      0 0 20px hsla(200 100% 50% / 0.3),
+      0 0 30px hsla(200 100% 50% / 0.2);
+    animation: textPulse 2s ease-in-out infinite alternate;
+  }
+
+  .dynamic-text {
+    display: inline-block;
+    animation: dynamicGlow 2s ease-in-out infinite;
+    background: var(--gradient-primary);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
-  .skill-card {
-    background: hsl(var(--skill-icon-bg));
-    border: 1px solid hsl(var(--skill-icon-border));
-    transition: var(--transition-smooth);
+  /* Floating elements */
+  .floating {
+    animation: float 6s ease-in-out infinite;
   }
 
-  .skill-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--glow-effect);
+  .floating:nth-child(2) {
+    animation-delay: -2s;
   }
 
-  .nav-button {
-    background: hsl(var(--nav-button));
-    border: 1px solid hsl(var(--nav-button-border));
-    transition: var(--transition-smooth);
+  .floating:nth-child(3) {
+    animation-delay: -4s;
   }
 
-  .nav-button:hover {
-    background: hsl(var(--nav-button-hover));
-    box-shadow: 0 0 20px hsl(var(--primary) / 0.5);
+  /* Parallax background */
+  .parallax-bg {
+    background: var(--gradient-aurora);
+    background-size: 400% 400%;
+    animation: gradientShift 8s ease infinite;
   }
 
-  .glow-text {
-    text-shadow: 0 0 20px hsl(var(--primary) / 0.5);
+  /* Keyframe animations */
+  @keyframes textGlow {
+    0% { filter: drop-shadow(0 0 20px hsla(200 100% 50% / 0.3)); }
+    100% { filter: drop-shadow(0 0 30px hsla(200 100% 50% / 0.6)); }
   }
 
-  .cert-card {
-    background: hsl(var(--card));
-    border: 1px solid hsl(var(--border));
-    transition: var(--transition-smooth);
+  @keyframes textPulse {
+    0% { 
+      text-shadow: 
+        0 0 10px hsla(200 100% 50% / 0.5),
+        0 0 20px hsla(200 100% 50% / 0.3),
+        0 0 30px hsla(200 100% 50% / 0.2);
+    }
+    100% { 
+      text-shadow: 
+        0 0 15px hsla(200 100% 50% / 0.8),
+        0 0 25px hsla(200 100% 50% / 0.5),
+        0 0 35px hsla(200 100% 50% / 0.3);
+    }
   }
 
-  .cert-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 30px hsl(var(--primary) / 0.1);
+  @keyframes dynamicGlow {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(1.02); }
   }
 
-  .skill-card-large {
-    background: hsl(var(--skill-icon-bg));
-    border: 2px solid hsl(var(--skill-icon-border));
-    transition: var(--transition-smooth);
-    box-shadow: var(--glow-effect);
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
   }
 
-  .dynamic-text {
-    display: inline-block;
-    animation: fadeInOut 2s ease-in-out infinite;
+  @keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
   }
 
   @keyframes fadeInOut {
     0%, 100% { opacity: 1; }
     50% { opacity: 0.7; }
+  }
+
+  /* Interactive hover zones */
+  .hover-lift {
+    transition: var(--transition-bounce);
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-4px);
+  }
+
+  .hover-glow:hover {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .hover-scale:hover {
+    transform: scale(1.05);
   }
 }
 
