@@ -15,23 +15,23 @@ const HeroSection = () => {
 
   return (
     <section id="profile" className="min-h-screen flex items-center justify-center relative parallax-bg overflow-hidden">
-      {/* Floating Decorative Elements */}
-      <div className="absolute top-20 left-20 text-6xl text-primary/30 floating">
+      {/* Subtle Decorative Elements */}
+      <div className="absolute top-20 left-20 text-4xl text-primary/20 floating">
         <Code className="hover-glow" />
       </div>
-      <div className="absolute bottom-20 right-20 text-6xl text-primary/30 floating">
+      <div className="absolute bottom-20 right-20 text-4xl text-primary/20 floating">
         <Database className="hover-glow" />
       </div>
-      <div className="absolute top-1/3 right-1/4 text-4xl text-secondary/20 floating">
+      <div className="absolute top-1/3 right-1/4 text-2xl text-primary/10 floating">
         ⚡
       </div>
-      <div className="absolute bottom-1/3 left-1/4 text-4xl text-accent/20 floating">
+      <div className="absolute bottom-1/3 left-1/4 text-2xl text-primary/10 floating">
         🚀
       </div>
       
-      {/* Gradient Orbs */}
-      <div className="absolute top-1/4 left-1/3 w-32 h-32 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-full blur-3xl animate-pulse"></div>
-      <div className="absolute bottom-1/4 right-1/3 w-40 h-40 bg-gradient-to-r from-accent/20 to-primary/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
+      {/* Subtle Background Orbs */}
+      <div className="absolute top-1/4 left-1/3 w-24 h-24 bg-primary/5 rounded-full blur-2xl animate-pulse"></div>
+      <div className="absolute bottom-1/4 right-1/3 w-32 h-32 bg-primary/3 rounded-full blur-3xl animate-pulse delay-1000"></div>
       
       <div className="text-center px-6 z-10 glass-card p-12 max-w-4xl mx-4">
         <div className="mb-8">
@@ -42,8 +42,8 @@ const HeroSection = () => {
             </span>
           </h3>
           <h1 className="text-6xl md:text-8xl font-bold mb-8 leading-tight">
-            <span className="name-gradient block quantum-morph holographic-text" data-text="Rohith Varma">Rohith Varma</span>
-            <span className="name-gradient block quantum-morph holographic-text" data-text="Suraparaju">Suraparaju</span>
+            <span className="name-gradient block hover-lift">Rohith Varma</span>
+            <span className="name-gradient block hover-lift">Suraparaju</span>
           </h1>
           <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             Transforming ideas into intelligent solutions through 
@@ -51,27 +51,25 @@ const HeroSection = () => {
           </p>
         </div>
         
-        {/* Enhanced Avatar Section */}
+        {/* Professional Avatar Section */}
         <div className="flex justify-center items-center">
           <div className="relative group">
-            <div className="absolute -inset-4 bg-gradient-to-r from-primary via-secondary to-accent rounded-full blur opacity-30 group-hover:opacity-50 transition duration-1000 group-hover:duration-200 animate-pulse"></div>
+            <div className="absolute -inset-2 bg-gradient-to-r from-primary/20 to-primary/10 rounded-full blur opacity-75 group-hover:opacity-100 transition duration-500 animate-pulse-subtle"></div>
             <img 
               src={rohithAvatar} 
               alt="Rohith Varma" 
-              className="relative w-36 h-36 md:w-44 md:h-44 rounded-full object-cover border-4 border-primary/50 shadow-2xl transform transition-all duration-500 group-hover:scale-110 group-hover:rotate-3"
+              className="relative w-36 h-36 md:w-44 md:h-44 rounded-full object-cover border-2 border-primary/30 shadow-xl transform transition-all duration-300 group-hover:scale-105 hover-glow"
             />
-            <div className="absolute -bottom-2 -right-2 text-5xl animate-bounce hover-scale">
+            <div className="absolute -bottom-1 -right-1 text-3xl animate-fade-in">
               👨‍💻
             </div>
-            <div className="absolute top-0 left-0 w-full h-full rounded-full border-2 border-primary/30 animate-ping"></div>
           </div>
         </div>
         
-        {/* Quantum Call to Action */}
+        {/* Professional Call to Action */}
         <div className="mt-12">
-          <button className="glass-card px-10 py-5 text-lg font-semibold text-primary hover-lift hover-glow quantum-morph transition-all duration-500 relative group">
-            <span className="relative z-10">Explore My Quantum Journey</span>
-            <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-secondary/20 to-accent/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-inherit"></div>
+          <button className="btn-primary px-8 py-4 text-lg font-semibold rounded-lg hover-lift focus-ring transition-all duration-300">
+            Explore My Portfolio
           </button>
         </div>
       </div>

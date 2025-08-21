@@ -2,147 +2,77 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Ultra-Premium Portfolio Design System - Quantum Theme */
+/* Professional Portfolio Design System */
 
 @layer base {
   :root {
-    /* Quantum-Level Dark Portfolio Theme */
-    --background: 222 47% 8%;
+    /* Professional Dark Theme */
+    --background: 222 84% 4.9%;
     --foreground: 210 40% 98%;
 
-    --card: 222 47% 12%;
+    --card: 222 84% 6%;
     --card-foreground: 210 40% 98%;
 
-    --popover: 222 47% 12%;
+    --popover: 222 84% 6%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 180 100% 60%;
-    --primary-foreground: 222 47% 8%;
+    --primary: 217 91% 60%;
+    --primary-foreground: 222 84% 4.9%;
 
-    --secondary: 270 100% 70%;
+    --secondary: 217 32% 17%;
     --secondary-foreground: 210 40% 98%;
 
-    --muted: 222 47% 18%;
+    --muted: 215 27.9% 16.9%;
     --muted-foreground: 215 20.2% 65.1%;
 
-    --accent: 300 100% 65%;
-    --accent-foreground: 222 47% 8%;
+    --accent: 217 32% 17%;
+    --accent-foreground: 210 40% 98%;
 
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 222 47% 22%;
-    --input: 222 47% 16%;
-    --ring: 180 100% 60%;
+    --border: 217 32% 17%;
+    --input: 217 32% 17%;
+    --ring: 217 91% 60%;
 
-    --radius: 1.5rem;
+    --radius: 0.75rem;
 
-    /* Quantum gradient system */
-    --gradient-cosmic: linear-gradient(135deg, 
-      hsl(180 100% 60%) 0%, 
-      hsl(270 100% 70%) 25%, 
-      hsl(300 100% 65%) 50%, 
-      hsl(320 100% 60%) 75%, 
-      hsl(180 100% 60%) 100%);
-    --gradient-nebula: linear-gradient(45deg, 
-      hsla(180 100% 60% / 0.1) 0%, 
-      hsla(270 100% 70% / 0.08) 25%, 
-      hsla(300 100% 65% / 0.06) 50%, 
-      hsla(320 100% 60% / 0.08) 75%, 
-      hsla(180 100% 60% / 0.1) 100%);
-    --gradient-aurora: radial-gradient(ellipse at top, 
-      hsla(180 100% 60% / 0.3) 0%, 
-      hsla(270 100% 70% / 0.2) 30%, 
-      hsla(300 100% 65% / 0.1) 60%, 
-      transparent 100%);
-    --gradient-hologram: conic-gradient(from 0deg, 
-      hsl(180 100% 60%), 
-      hsl(200 100% 65%), 
-      hsl(240 100% 70%), 
-      hsl(270 100% 70%), 
-      hsl(300 100% 65%), 
-      hsl(320 100% 60%), 
-      hsl(180 100% 60%));
-    --gradient-quantum: linear-gradient(90deg, 
-      transparent 0%, 
-      hsla(180 100% 60% / 0.4) 25%, 
-      hsla(270 100% 70% / 0.6) 50%, 
-      hsla(300 100% 65% / 0.4) 75%, 
-      transparent 100%);
+    /* Professional gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(217 91% 60%) 0%, hsl(217 91% 65%) 100%);
+    --gradient-subtle: linear-gradient(180deg, hsl(222 84% 4.9%) 0%, hsl(222 84% 6%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(222 84% 6%) 0%, hsl(217 32% 17% / 0.1) 100%);
+    --gradient-hero: radial-gradient(ellipse at center top, hsl(217 91% 60% / 0.15) 0%, transparent 70%);
     
-    /* Ultra-glass morphism */
-    --glass-bg: hsla(222 47% 12% / 0.4);
-    --glass-border: hsla(180 100% 60% / 0.3);
-    --glass-shadow: 0 12px 40px hsla(180 100% 60% / 0.15);
-    --glass-backdrop: blur(30px) saturate(200%) brightness(120%);
-    --glass-shine: linear-gradient(45deg, transparent 30%, hsla(180 100% 60% / 0.1) 50%, transparent 70%);
+    /* Professional glass effects */
+    --glass-bg: hsl(222 84% 6% / 0.8);
+    --glass-border: hsl(217 91% 60% / 0.2);
+    --glass-shadow: 0 8px 32px hsl(0 0% 0% / 0.12);
+    --glass-backdrop: blur(16px) saturate(180%);
     
-    /* Quantum shadows and effects */
-    --shadow-quantum: 0 0 60px hsla(180 100% 60% / 0.6), 0 0 120px hsla(270 100% 70% / 0.3);
-    --shadow-ethereal: 0 30px 80px hsla(0 0% 0% / 0.3), 0 0 40px hsla(180 100% 60% / 0.2);
-    --shadow-cosmic: 0 20px 60px hsla(180 100% 60% / 0.25), 0 40px 120px hsla(270 100% 70% / 0.15);
-    --shadow-dimensional: 0 35px 70px hsla(0 0% 0% / 0.2), 
-                          0 0 60px hsla(180 100% 60% / 0.3), 
-                          inset 0 1px 4px hsla(180 100% 60% / 0.2);
-    --shadow-particle: 0 0 20px hsla(180 100% 60% / 0.8), 
-                       0 0 40px hsla(270 100% 70% / 0.4), 
-                       0 0 80px hsla(300 100% 65% / 0.2);
+    /* Professional shadows */
+    --shadow-sm: 0 1px 2px hsl(0 0% 0% / 0.05);
+    --shadow-md: 0 4px 6px hsl(0 0% 0% / 0.07), 0 2px 4px hsl(0 0% 0% / 0.06);
+    --shadow-lg: 0 10px 15px hsl(0 0% 0% / 0.1), 0 4px 6px hsl(0 0% 0% / 0.05);
+    --shadow-xl: 0 20px 25px hsl(0 0% 0% / 0.1), 0 8px 10px hsl(0 0% 0% / 0.04);
+    --shadow-glow: 0 0 20px hsl(217 91% 60% / 0.25);
+    --shadow-primary: 0 4px 14px hsl(217 91% 60% / 0.25);
     
-    /* Quantum animation system */
-    --transition-quantum: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    --transition-morph: all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
-    --transition-elastic: all 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    --transition-fluid: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-    
-    /* Particle system variables */
-    --particle-count: 50;
-    --particle-speed: 20s;
-    --particle-color-1: hsla(180 100% 60% / 0.6);
-    --particle-color-2: hsla(270 100% 70% / 0.4);
-    --particle-color-3: hsla(300 100% 65% / 0.3);
+    /* Professional transitions */
+    --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-medium: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: 400ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
   }
 
 }
 
-/* Quantum-Level Portfolio Styles */
+/* Professional Portfolio Styles */
 @layer utilities {
-  /* Particle background system */
-  .particle-bg {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    pointer-events: none;
-    z-index: 0;
-    overflow: hidden;
-  }
-
-  .particle {
-    position: absolute;
-    border-radius: 50%;
-    animation: particleFloat var(--particle-speed) infinite linear;
-    opacity: 0;
-  }
-
-  .particle:nth-child(1) { background: var(--particle-color-1); width: 3px; height: 3px; left: 10%; animation-delay: 0s; }
-  .particle:nth-child(2) { background: var(--particle-color-2); width: 2px; height: 2px; left: 20%; animation-delay: -2s; }
-  .particle:nth-child(3) { background: var(--particle-color-3); width: 4px; height: 4px; left: 30%; animation-delay: -4s; }
-  .particle:nth-child(4) { background: var(--particle-color-1); width: 1px; height: 1px; left: 40%; animation-delay: -6s; }
-  .particle:nth-child(5) { background: var(--particle-color-2); width: 3px; height: 3px; left: 50%; animation-delay: -8s; }
-  .particle:nth-child(6) { background: var(--particle-color-3); width: 2px; height: 2px; left: 60%; animation-delay: -10s; }
-  .particle:nth-child(7) { background: var(--particle-color-1); width: 5px; height: 5px; left: 70%; animation-delay: -12s; }
-  .particle:nth-child(8) { background: var(--particle-color-2); width: 1px; height: 1px; left: 80%; animation-delay: -14s; }
-  .particle:nth-child(9) { background: var(--particle-color-3); width: 3px; height: 3px; left: 90%; animation-delay: -16s; }
-  .particle:nth-child(10) { background: var(--particle-color-1); width: 2px; height: 2px; left: 15%; animation-delay: -18s; }
-
-  /* Hero section quantum enhancements */
+  /* Hero section */
   .hero-gradient {
-    background: var(--gradient-cosmic);
-    background-size: 400% 400%;
+    background: var(--gradient-subtle);
     position: relative;
     overflow: hidden;
-    animation: cosmicShift 12s ease infinite;
   }
 
   .hero-gradient::before {
@@ -152,58 +82,31 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: var(--gradient-aurora);
-    opacity: 0.8;
-    animation: auroraMove 8s ease-in-out infinite alternate;
-    pointer-events: none;
-  }
-
-  .hero-gradient::after {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: var(--gradient-hologram);
-    opacity: 0.1;
-    animation: hologramSpin 20s linear infinite;
+    background: var(--gradient-hero);
     pointer-events: none;
   }
 
   .name-gradient {
-    background: var(--gradient-cosmic);
-    background-size: 300% 300%;
+    background: var(--gradient-primary);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    filter: drop-shadow(0 0 30px hsla(180 100% 60% / 0.5));
-    animation: textQuantum 4s ease-in-out infinite, gradientFlow 8s ease infinite;
+    transition: var(--transition-medium);
     position: relative;
   }
 
-  .name-gradient::before {
-    content: attr(data-text);
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: var(--gradient-cosmic);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    filter: blur(2px);
-    opacity: 0.5;
-    z-index: -1;
+  .name-gradient:hover {
+    filter: drop-shadow(0 0 8px hsl(217 91% 60% / 0.3));
   }
 
-  /* Quantum glass morphism cards */
+  /* Professional glass cards */
   .glass-card {
     background: var(--glass-bg);
-    border: 2px solid var(--glass-border);
+    border: 1px solid var(--glass-border);
     box-shadow: var(--glass-shadow);
     backdrop-filter: var(--glass-backdrop);
     border-radius: var(--radius);
-    transition: var(--transition-quantum);
+    transition: var(--transition-medium);
     position: relative;
     overflow: hidden;
   }
@@ -215,168 +118,78 @@
     left: -100%;
     width: 100%;
     height: 100%;
-    background: var(--gradient-quantum);
-    transition: left 0.8s cubic-bezier(0.23, 1, 0.32, 1);
-    z-index: 0;
-  }
-
-  .glass-card::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: var(--glass-shine);
-    opacity: 0;
-    transition: opacity 0.6s ease;
-    pointer-events: none;
-    z-index: 1;
+    background: linear-gradient(90deg, transparent, hsl(217 91% 60% / 0.1), transparent);
+    transition: left var(--transition-slow);
   }
 
   .glass-card:hover::before {
     left: 100%;
   }
 
-  .glass-card:hover::after {
-    opacity: 1;
-  }
-
   .glass-card:hover {
-    transform: translateY(-12px) scale(1.03) rotateX(5deg);
-    box-shadow: var(--shadow-dimensional);
-    border-color: hsla(180 100% 60% / 0.6);
-    background: hsla(222 47% 12% / 0.6);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-xl), var(--shadow-glow);
+    border-color: hsl(217 91% 60% / 0.3);
   }
 
-  .glass-card > * {
-    position: relative;
-    z-index: 2;
-  }
-
-  /* Quantum skill cards */
+  /* Professional skill cards */
   .skill-card {
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
-    backdrop-filter: var(--glass-backdrop);
-    transition: var(--transition-quantum);
+    background: var(--card);
+    border: 1px solid var(--border);
+    transition: var(--transition-medium);
     position: relative;
     overflow: hidden;
-    border-radius: calc(var(--radius) * 0.8);
-  }
-
-  .skill-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: var(--gradient-hologram);
-    opacity: 0;
-    transition: opacity 0.6s ease;
-    border-radius: inherit;
-  }
-
-  .skill-card:hover::before {
-    opacity: 0.1;
+    border-radius: var(--radius);
   }
 
   .skill-card:hover {
-    transform: translateY(-8px) rotate(3deg) scale(1.05);
-    box-shadow: var(--shadow-quantum);
-    border-color: hsla(180 100% 60% / 0.8);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: hsl(217 91% 60% / 0.4);
   }
 
   .skill-card-large {
     background: var(--glass-bg);
-    border: 3px solid var(--glass-border);
+    border: 2px solid var(--glass-border);
     backdrop-filter: var(--glass-backdrop);
-    transition: var(--transition-elastic);
-    box-shadow: var(--shadow-cosmic);
+    transition: var(--transition-medium);
+    box-shadow: var(--shadow-lg);
     position: relative;
     overflow: hidden;
     border-radius: var(--radius);
-  }
-
-  .skill-card-large::before {
-    content: '';
-    position: absolute;
-    top: -2px;
-    left: -2px;
-    right: -2px;
-    bottom: -2px;
-    background: var(--gradient-hologram);
-    border-radius: var(--radius);
-    z-index: -1;
-    animation: hologramBorder 3s linear infinite;
-  }
-
-  .skill-card-large::after {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: conic-gradient(
-      transparent 0deg, 
-      hsla(180 100% 60% / 0.2) 90deg, 
-      transparent 180deg, 
-      hsla(270 100% 70% / 0.2) 270deg, 
-      transparent 360deg
-    );
-    animation: quantumRotate 6s linear infinite;
-    pointer-events: none;
   }
 
   .skill-card-large:hover {
-    transform: translateY(-12px) scale(1.08) rotateY(5deg);
-    box-shadow: var(--shadow-dimensional);
-    border-color: hsla(180 100% 60% / 0.9);
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: var(--shadow-xl), var(--shadow-primary);
+    border-color: hsl(217 91% 60% / 0.5);
   }
 
-  /* Navigation enhancements */
+  /* Professional navigation */
   .nav-button {
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
-    backdrop-filter: var(--glass-backdrop);
-    transition: var(--transition-bounce);
+    background: var(--card);
+    border: 1px solid var(--border);
+    transition: var(--transition-medium);
     position: relative;
     overflow: hidden;
-  }
-
-  .nav-button::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    background: radial-gradient(circle, hsla(200 100% 50% / 0.3) 0%, transparent 70%);
-    transition: all 0.4s ease;
-    transform: translate(-50%, -50%);
-  }
-
-  .nav-button:hover::before {
-    width: 300px;
-    height: 300px;
+    border-radius: var(--radius);
   }
 
   .nav-button:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-glow);
-    border-color: hsla(200 100% 50% / 0.8);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+    border-color: hsl(217 91% 60% / 0.4);
+    background: var(--glass-bg);
   }
 
-  /* Certificate cards */
+  /* Professional certificate cards */
   .cert-card {
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
-    backdrop-filter: var(--glass-backdrop);
-    transition: var(--transition-smooth);
+    background: var(--card);
+    border: 1px solid var(--border);
+    transition: var(--transition-medium);
     position: relative;
     overflow: hidden;
+    border-radius: var(--radius);
   }
 
   .cert-card::before {
@@ -388,7 +201,7 @@
     height: 2px;
     background: var(--gradient-primary);
     transform: scaleX(0);
-    transition: transform 0.3s ease;
+    transition: transform var(--transition-medium);
     transform-origin: left;
   }
 
@@ -397,247 +210,190 @@
   }
 
   .cert-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-card);
-    border-color: hsla(200 100% 50% / 0.3);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+    border-color: hsl(217 91% 60% / 0.3);
   }
 
-  /* Text effects */
+  /* Professional text effects */
   .glow-text {
     color: hsl(var(--primary));
-    text-shadow: 
-      0 0 10px hsla(200 100% 50% / 0.5),
-      0 0 20px hsla(200 100% 50% / 0.3),
-      0 0 30px hsla(200 100% 50% / 0.2);
-    animation: textPulse 2s ease-in-out infinite alternate;
+    text-shadow: 0 0 8px hsl(217 91% 60% / 0.3);
+    transition: var(--transition-medium);
+  }
+
+  .glow-text:hover {
+    text-shadow: 0 0 12px hsl(217 91% 60% / 0.5);
   }
 
   .dynamic-text {
     display: inline-block;
-    animation: dynamicGlow 2s ease-in-out infinite;
     background: var(--gradient-primary);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    transition: var(--transition-medium);
   }
 
-  /* Floating elements */
+  .dynamic-text:hover {
+    filter: drop-shadow(0 0 6px hsl(217 91% 60% / 0.4));
+  }
+
+  /* Professional floating elements */
   .floating {
-    animation: float 6s ease-in-out infinite;
+    animation: gentleFloat 4s ease-in-out infinite;
   }
 
   .floating:nth-child(2) {
-    animation-delay: -2s;
+    animation-delay: -1s;
   }
 
   .floating:nth-child(3) {
-    animation-delay: -4s;
+    animation-delay: -2s;
   }
 
-  /* Parallax background */
+  /* Professional parallax background */
   .parallax-bg {
-    background: var(--gradient-aurora);
-    background-size: 400% 400%;
-    animation: gradientShift 8s ease infinite;
-  }
-
-  /* Quantum keyframe animations */
-  @keyframes particleFloat {
-    0% { 
-      transform: translateY(100vh) translateX(0px) scale(0);
-      opacity: 0;
-    }
-    10% {
-      opacity: 1;
-    }
-    90% {
-      opacity: 1;
-    }
-    100% { 
-      transform: translateY(-100px) translateX(100px) scale(1);
-      opacity: 0;
-    }
-  }
-
-  @keyframes cosmicShift {
-    0% { background-position: 0% 50%; }
-    25% { background-position: 100% 50%; }
-    50% { background-position: 50% 100%; }
-    75% { background-position: 0% 50%; }
-    100% { background-position: 50% 0%; }
-  }
-
-  @keyframes auroraMove {
-    0% { transform: translateX(-20%) rotate(0deg); opacity: 0.8; }
-    50% { transform: translateX(20%) rotate(180deg); opacity: 0.6; }
-    100% { transform: translateX(-20%) rotate(360deg); opacity: 0.8; }
-  }
-
-  @keyframes hologramSpin {
-    from { transform: rotate(0deg) scale(1); }
-    50% { transform: rotate(180deg) scale(1.1); }
-    to { transform: rotate(360deg) scale(1); }
-  }
-
-  @keyframes textQuantum {
-    0% { 
-      filter: drop-shadow(0 0 30px hsla(180 100% 60% / 0.5)) 
-              drop-shadow(0 0 60px hsla(270 100% 70% / 0.3));
-    }
-    50% { 
-      filter: drop-shadow(0 0 40px hsla(180 100% 60% / 0.8)) 
-              drop-shadow(0 0 80px hsla(270 100% 70% / 0.5))
-              drop-shadow(0 0 120px hsla(300 100% 65% / 0.3));
-    }
-    100% { 
-      filter: drop-shadow(0 0 30px hsla(180 100% 60% / 0.5)) 
-              drop-shadow(0 0 60px hsla(270 100% 70% / 0.3));
-    }
-  }
-
-  @keyframes gradientFlow {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-  }
-
-  @keyframes quantumRotate {
-    from { transform: rotate(0deg) scale(1); }
-    50% { transform: rotate(180deg) scale(1.05); }
-    to { transform: rotate(360deg) scale(1); }
-  }
-
-  @keyframes hologramBorder {
-    0% { opacity: 0.6; transform: rotate(0deg); }
-    50% { opacity: 1; transform: rotate(180deg); }
-    100% { opacity: 0.6; transform: rotate(360deg); }
-  }
-
-  @keyframes textPulse {
-    0% { 
-      text-shadow: 
-        0 0 15px hsla(180 100% 60% / 0.6),
-        0 0 30px hsla(270 100% 70% / 0.4),
-        0 0 45px hsla(300 100% 65% / 0.3);
-    }
-    100% { 
-      text-shadow: 
-        0 0 25px hsla(180 100% 60% / 0.9),
-        0 0 40px hsla(270 100% 70% / 0.6),
-        0 0 55px hsla(300 100% 65% / 0.4);
-    }
-  }
-
-  @keyframes dynamicGlow {
-    0%, 100% { 
-      opacity: 1; 
-      transform: scale(1);
-      filter: brightness(1);
-    }
-    50% { 
-      opacity: 0.9; 
-      transform: scale(1.03);
-      filter: brightness(1.2);
-    }
-  }
-
-  @keyframes float {
-    0%, 100% { transform: translateY(0px) rotate(0deg); }
-    33% { transform: translateY(-15px) rotate(2deg); }
-    66% { transform: translateY(-8px) rotate(-1deg); }
-  }
-
-  @keyframes quantumPulse {
-    0%, 100% { 
-      box-shadow: var(--shadow-quantum);
-      transform: scale(1);
-    }
-    50% { 
-      box-shadow: var(--shadow-particle);
-      transform: scale(1.02);
-    }
-  }
-
-  /* Quantum interactive zones */
-  .hover-lift {
-    transition: var(--transition-quantum);
-  }
-
-  .hover-lift:hover {
-    transform: translateY(-6px) rotateX(2deg);
-    animation: quantumPulse 2s ease-in-out infinite;
-  }
-
-  .hover-glow:hover {
-    box-shadow: var(--shadow-quantum);
-    animation: quantumPulse 1.5s ease-in-out infinite;
-  }
-
-  .hover-scale:hover {
-    transform: scale(1.08) rotateY(5deg);
-    filter: brightness(1.1);
-  }
-
-  /* Quantum morphing effects */
-  .quantum-morph {
-    transition: var(--transition-morph);
+    background: var(--gradient-subtle);
     position: relative;
-    overflow: hidden;
   }
 
-  .quantum-morph::before {
+  .parallax-bg::before {
     content: '';
     position: absolute;
     top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: var(--gradient-hologram);
-    opacity: 0;
-    transition: all 0.8s ease;
-    z-index: 0;
-  }
-
-  .quantum-morph:hover::before {
     left: 0;
-    opacity: 0.2;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient-hero);
+    opacity: 0.8;
   }
 
-  .quantum-morph:hover {
-    transform: perspective(1000px) rotateY(10deg) rotateX(5deg) translateZ(20px);
+  /* Professional keyframe animations */
+  @keyframes gentleFloat {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
   }
 
-  /* Holographic text effects */
-  .holographic-text {
-    background: var(--gradient-hologram);
-    background-size: 200% 200%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: hologramShift 3s ease infinite;
-    position: relative;
+  @keyframes fadeIn {
+    from { 
+      opacity: 0; 
+      transform: translateY(20px); 
+    }
+    to { 
+      opacity: 1; 
+      transform: translateY(0); 
+    }
   }
 
-  .holographic-text::after {
-    content: attr(data-text);
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: var(--gradient-cosmic);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    filter: blur(1px);
-    opacity: 0.3;
-    z-index: -1;
+  @keyframes slideIn {
+    from { 
+      opacity: 0; 
+      transform: translateX(-30px); 
+    }
+    to { 
+      opacity: 1; 
+      transform: translateX(0); 
+    }
   }
 
-  @keyframes hologramShift {
-    0% { background-position: 0% 0%; }
-    25% { background-position: 100% 0%; }
-    50% { background-position: 100% 100%; }
-    75% { background-position: 0% 100%; }
-    100% { background-position: 0% 0%; }
+  @keyframes scaleIn {
+    from { 
+      opacity: 0; 
+      transform: scale(0.9); 
+    }
+    to { 
+      opacity: 1; 
+      transform: scale(1); 
+    }
+  }
+
+  @keyframes textGlow {
+    0% { 
+      text-shadow: 0 0 8px hsl(217 91% 60% / 0.3);
+    }
+    100% { 
+      text-shadow: 0 0 12px hsl(217 91% 60% / 0.5);
+    }
+  }
+
+  @keyframes subtlePulse {
+    0%, 100% { 
+      box-shadow: var(--shadow-lg);
+      transform: scale(1);
+    }
+    50% { 
+      box-shadow: var(--shadow-xl), var(--shadow-glow);
+      transform: scale(1.01);
+    }
+  }
+
+  /* Professional interactive zones */
+  .hover-lift {
+    transition: var(--transition-medium);
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-2px);
+  }
+
+  .hover-glow:hover {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .hover-scale:hover {
+    transform: scale(1.02);
+  }
+
+  /* Professional focus states */
+  .focus-ring:focus {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+  }
+
+  /* Professional button styles */
+  .btn-primary {
+    background: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+    border: 1px solid hsl(var(--primary));
+    transition: var(--transition-medium);
+  }
+
+  .btn-primary:hover {
+    background: hsl(217 91% 55%);
+    box-shadow: var(--shadow-primary);
+    transform: translateY(-1px);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: hsl(var(--primary));
+    border: 1px solid hsl(var(--border));
+    transition: var(--transition-medium);
+  }
+
+  .btn-secondary:hover {
+    background: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+    border-color: hsl(var(--primary));
+    transform: translateY(-1px);
+  }
+
+  /* Professional animations */
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out;
+  }
+
+  .animate-slide-in {
+    animation: slideIn 0.6s ease-out;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.4s ease-out;
+  }
+
+  .animate-pulse-subtle {
+    animation: subtlePulse 3s ease-in-out infinite;
   }
 }
 
