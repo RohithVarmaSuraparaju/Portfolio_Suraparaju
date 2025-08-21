@@ -42,8 +42,8 @@ const HeroSection = () => {
             </span>
           </h3>
           <h1 className="text-6xl md:text-8xl font-bold mb-8 leading-tight">
-            <span className="name-gradient block">Rohith Varma</span>
-            <span className="name-gradient block">Suraparaju</span>
+            <span className="name-gradient block quantum-morph holographic-text" data-text="Rohith Varma">Rohith Varma</span>
+            <span className="name-gradient block quantum-morph holographic-text" data-text="Suraparaju">Suraparaju</span>
           </h1>
           <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             Transforming ideas into intelligent solutions through 
@@ -67,10 +67,11 @@ const HeroSection = () => {
           </div>
         </div>
         
-        {/* Call to Action */}
+        {/* Quantum Call to Action */}
         <div className="mt-12">
-          <button className="glass-card px-8 py-4 text-lg font-semibold text-primary hover-lift hover-glow transition-all duration-300">
-            Explore My Journey
+          <button className="glass-card px-10 py-5 text-lg font-semibold text-primary hover-lift hover-glow quantum-morph transition-all duration-500 relative group">
+            <span className="relative z-10">Explore My Quantum Journey</span>
+            <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-secondary/20 to-accent/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-inherit"></div>
           </button>
         </div>
       </div>
