@@ -3,7 +3,12 @@ import { Code, Database } from "lucide-react";
 import { useState, useEffect } from "react";
 
 const HeroSection = () => {
-  const roles = ["AI ENTHUSIAST", "LEARNER", "DEVELOPER", "PROGRAMMER"];
+  const roles = [
+    "I'M AN AI ENTHUSIAST",
+    "I'M A LEARNER", 
+    "I'M A DEVELOPER", 
+    "I'M A PROGRAMMER"
+  ];
   const [currentRole, setCurrentRole] = useState(0);
 
   useEffect(() => {
@@ -41,7 +46,7 @@ const HeroSection = () => {
           </h1>
           
           <div className="relative h-20 flex items-center justify-center mb-8">
-            <h2 className="text-3xl md:text-4xl font-bold text-accent relative">
+            <h2 className="text-2xl md:text-3xl font-bold dynamic-text relative">
               <span 
                 key={currentRole}
                 className="absolute inset-0 flex items-center justify-center animate-role-transition"
