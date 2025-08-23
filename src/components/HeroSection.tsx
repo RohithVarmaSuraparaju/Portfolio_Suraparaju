@@ -3,7 +3,7 @@ import { Code, Database } from "lucide-react";
 import { useState, useEffect } from "react";
 
 const HeroSection = () => {
-  const roles = ["learner", "programmer", "developer", "ai enthusiast"];
+  const roles = ["AI ENTHUSIAST", "LEARNER", "DEVELOPER", "PROGRAMMER"];
   const [currentRole, setCurrentRole] = useState(0);
 
   useEffect(() => {
@@ -35,16 +35,26 @@ const HeroSection = () => {
       
       <div className="text-center px-6 z-10 glass-card p-12 max-w-4xl mx-4">
         <div className="mb-8">
-          <h3 className="text-2xl md:text-3xl text-muted-foreground mb-6">
-            I'm a{" "}
-            <span className="dynamic-text text-accent font-bold text-3xl md:text-4xl">
-              {roles[currentRole]}
-            </span>
-          </h3>
-          <h1 className="text-6xl md:text-8xl font-bold mb-8 leading-tight">
+          <h1 className="text-6xl md:text-8xl font-bold mb-6 leading-tight">
             <span className="name-gradient block hover-lift">Rohith Varma</span>
             <span className="name-gradient block hover-lift">Suraparaju</span>
           </h1>
+          
+          <div className="relative h-20 flex items-center justify-center mb-8">
+            <h2 className="text-3xl md:text-4xl font-bold text-accent relative">
+              <span 
+                key={currentRole}
+                className="absolute inset-0 flex items-center justify-center animate-role-transition"
+                style={{ 
+                  animation: 'fadeSlide 0.6s ease-in-out',
+                  letterSpacing: '0.1em'
+                }}
+              >
+                {roles[currentRole]}
+              </span>
+            </h2>
+          </div>
+          
           <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             Transforming ideas into intelligent solutions through 
             <span className="glow-text"> AI & Data Science</span>
