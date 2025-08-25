@@ -2,7 +2,8 @@ import SkillCard from "./SkillCard";
 import { useState, useEffect } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Download } from "lucide-react";
+import { Download, Award } from "lucide-react";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const AboutSection = () => {
   const [currentSkillIndex, setCurrentSkillIndex] = useState(0);
@@ -159,9 +160,12 @@ const AboutSection = () => {
                   <li className="flex items-center gap-3 p-2 rounded-lg hover:bg-primary/10 transition-colors">
                     <span className="text-primary">👁️</span> Computer Vision
                   </li>
-                  <li className="flex items-center gap-3 p-2 rounded-lg hover:bg-primary/10 transition-colors">
-                    <span className="text-primary">🤖</span> Generative AI & LLMs
-                  </li>
+                   <li className="flex items-center gap-3 p-2 rounded-lg hover:bg-primary/10 transition-colors">
+                     <span className="text-primary">🤖</span> Generative AI & LLMs
+                   </li>
+                   <li className="flex items-center gap-3 p-2 rounded-lg hover:bg-primary/10 transition-colors">
+                     <span className="text-primary">📊</span> Data Analysis & Insights
+                   </li>
                 </ul>
               </div>
             </div>
@@ -213,16 +217,168 @@ const AboutSection = () => {
           </div>
         </div>
 
-        {/* Skills Grid */}
-        <div className="space-y-12">
-          <SkillSection title="Programming Languages" emoji="💻" skills={programmingLanguages} />
-          <SkillSection title="Deep Learning Frameworks" emoji="🧠" skills={deepLearningFrameworks} />
-          <SkillSection title="NLP & Text Processing" emoji="📝" skills={nlpAndTextProcessing} />
-          <SkillSection title="Cloud & DevOps" emoji="☁️" skills={cloudAndDevOps} />
-          <SkillSection title="Databases & Storage" emoji="🗄️" skills={databasesAndStorage} />
-          <SkillSection title="Web Frameworks" emoji="🌐" skills={webFrameworks} />
-          <SkillSection title="Data Visualization" emoji="📊" skills={dataVisualization} />
-          <SkillSection title="Soft Skills" emoji="🤝" skills={softSkills} />
+        {/* Skills Section with Interactive Tabs */}
+        <div className="mb-16">
+          <div className="text-center mb-12">
+            <div className="flex items-center justify-center gap-3 mb-6">
+              <Award className="h-12 w-12 text-primary" />
+              <h2 className="text-4xl md:text-5xl font-bold text-foreground">
+                Skills & Technologies
+              </h2>
+            </div>
+            <p className="text-xl text-muted-foreground">
+              Professional expertise across multiple domains
+            </p>
+          </div>
+
+          <Tabs defaultValue="programming" className="w-full">
+            <TabsList className="grid w-full grid-cols-4 lg:grid-cols-8 mb-8">
+              <TabsTrigger value="programming">💻 Programming</TabsTrigger>
+              <TabsTrigger value="ai">🧠 AI/ML</TabsTrigger>
+              <TabsTrigger value="nlp">📝 NLP</TabsTrigger>
+              <TabsTrigger value="cloud">☁️ Cloud</TabsTrigger>
+              <TabsTrigger value="database">🗄️ Database</TabsTrigger>
+              <TabsTrigger value="web">🌐 Web</TabsTrigger>
+              <TabsTrigger value="visualization">📊 Visualization</TabsTrigger>
+              <TabsTrigger value="soft">🤝 Soft Skills</TabsTrigger>
+            </TabsList>
+
+            <TabsContent value="programming">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {programmingLanguages.map((skill, index) => (
+                  <div key={index} className="glass-card p-8 rounded-lg hover-lift group relative overflow-hidden">
+                    <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-secondary to-accent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+                    <div className="absolute top-4 right-4 w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center floating">
+                      <span className="text-2xl">{skill.icon}</span>
+                    </div>
+                    <div className="text-6xl mb-4 group-hover:animate-bounce">{skill.icon}</div>
+                    <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
+                      {skill.name}
+                    </h3>
+                  </div>
+                ))}
+              </div>
+            </TabsContent>
+
+            <TabsContent value="ai">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {deepLearningFrameworks.map((skill, index) => (
+                  <div key={index} className="glass-card p-8 rounded-lg hover-lift group relative overflow-hidden">
+                    <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-secondary to-accent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+                    <div className="absolute top-4 right-4 w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center floating">
+                      <span className="text-2xl">{skill.icon}</span>
+                    </div>
+                    <div className="text-6xl mb-4 group-hover:animate-bounce">{skill.icon}</div>
+                    <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
+                      {skill.name}
+                    </h3>
+                  </div>
+                ))}
+              </div>
+            </TabsContent>
+
+            <TabsContent value="nlp">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {nlpAndTextProcessing.map((skill, index) => (
+                  <div key={index} className="glass-card p-8 rounded-lg hover-lift group relative overflow-hidden">
+                    <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-secondary to-accent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+                    <div className="absolute top-4 right-4 w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center floating">
+                      <span className="text-2xl">{skill.icon}</span>
+                    </div>
+                    <div className="text-6xl mb-4 group-hover:animate-bounce">{skill.icon}</div>
+                    <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
+                      {skill.name}
+                    </h3>
+                  </div>
+                ))}
+              </div>
+            </TabsContent>
+
+            <TabsContent value="cloud">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {cloudAndDevOps.map((skill, index) => (
+                  <div key={index} className="glass-card p-8 rounded-lg hover-lift group relative overflow-hidden">
+                    <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-secondary to-accent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+                    <div className="absolute top-4 right-4 w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center floating">
+                      <span className="text-2xl">{skill.icon}</span>
+                    </div>
+                    <div className="text-6xl mb-4 group-hover:animate-bounce">{skill.icon}</div>
+                    <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
+                      {skill.name}
+                    </h3>
+                  </div>
+                ))}
+              </div>
+            </TabsContent>
+
+            <TabsContent value="database">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {databasesAndStorage.map((skill, index) => (
+                  <div key={index} className="glass-card p-8 rounded-lg hover-lift group relative overflow-hidden">
+                    <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-secondary to-accent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+                    <div className="absolute top-4 right-4 w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center floating">
+                      <span className="text-2xl">{skill.icon}</span>
+                    </div>
+                    <div className="text-6xl mb-4 group-hover:animate-bounce">{skill.icon}</div>
+                    <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
+                      {skill.name}
+                    </h3>
+                  </div>
+                ))}
+              </div>
+            </TabsContent>
+
+            <TabsContent value="web">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {webFrameworks.map((skill, index) => (
+                  <div key={index} className="glass-card p-8 rounded-lg hover-lift group relative overflow-hidden">
+                    <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-secondary to-accent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+                    <div className="absolute top-4 right-4 w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center floating">
+                      <span className="text-2xl">{skill.icon}</span>
+                    </div>
+                    <div className="text-6xl mb-4 group-hover:animate-bounce">{skill.icon}</div>
+                    <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
+                      {skill.name}
+                    </h3>
+                  </div>
+                ))}
+              </div>
+            </TabsContent>
+
+            <TabsContent value="visualization">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {dataVisualization.map((skill, index) => (
+                  <div key={index} className="glass-card p-8 rounded-lg hover-lift group relative overflow-hidden">
+                    <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-secondary to-accent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+                    <div className="absolute top-4 right-4 w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center floating">
+                      <span className="text-2xl">{skill.icon}</span>
+                    </div>
+                    <div className="text-6xl mb-4 group-hover:animate-bounce">{skill.icon}</div>
+                    <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
+                      {skill.name}
+                    </h3>
+                  </div>
+                ))}
+              </div>
+            </TabsContent>
+
+            <TabsContent value="soft">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {softSkills.map((skill, index) => (
+                  <div key={index} className="glass-card p-8 rounded-lg hover-lift group relative overflow-hidden">
+                    <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-secondary to-accent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+                    <div className="absolute top-4 right-4 w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center floating">
+                      <span className="text-2xl">{skill.icon}</span>
+                    </div>
+                    <div className="text-6xl mb-4 group-hover:animate-bounce">{skill.icon}</div>
+                    <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
+                      {skill.name}
+                    </h3>
+                  </div>
+                ))}
+              </div>
+            </TabsContent>
+          </Tabs>
         </div>
 
         <div className="text-center mb-16 mt-16">

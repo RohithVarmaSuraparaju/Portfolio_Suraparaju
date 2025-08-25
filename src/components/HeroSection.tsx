@@ -7,7 +7,8 @@ const HeroSection = () => {
     "I'M AN AI ENTHUSIAST",
     "I'M A LEARNER", 
     "I'M A DEVELOPER", 
-    "I'M A PROGRAMMER"
+    "I'M A PROGRAMMER",
+    "I'M A DATA ANALYST"
   ];
   const [currentRole, setCurrentRole] = useState(0);
 
