@@ -206,7 +206,7 @@ const AboutSection = () => {
             </div>
             <div className="glass-card p-4 mt-6 rounded-lg text-center">
               <p className="text-sm text-muted-foreground">
-                <span className="glow-text">{allSkills.length}+ Skills</span> rotating every 1.5 seconds
+                <span className="glow-text">{allSkills.length}+ Skills</span>
               </p>
               <div className="flex justify-center gap-2 mt-2">
                 {[...Array(4)].map((_, i) => (

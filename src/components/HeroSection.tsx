@@ -1,5 +1,6 @@
 import rohithAvatar from "@/assets/rohith-avatar.png";
 import { Code, Database } from "lucide-react";
+import { useState, useEffect } from "react";
 
 
 const HeroSection = () => {
@@ -10,6 +11,14 @@ const HeroSection = () => {
     "I'M A PROGRAMMER",
     "I'M A DATA ANALYST"
   ];
+  const [currentRole, setCurrentRole] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentRole((prev) => (prev + 1) % roles.length);
+    }, 2000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <section id="profile" className="min-h-screen flex items-center justify-center relative parallax-bg overflow-hidden">
@@ -38,9 +47,18 @@ const HeroSection = () => {
             <span className="name-gradient block hover-lift">Suraparaju</span>
           </h1>
           
-          <div className="relative flex items-center justify-center mb-8">
-            <h2 className="text-2xl md:text-3xl font-bold dynamic-text">
-              32+ SKILLS
+          <div className="relative h-20 flex items-center justify-center mb-8">
+            <h2 className="text-2xl md:text-3xl font-bold dynamic-text relative">
+              <span 
+                key={currentRole}
+                className="absolute inset-0 flex items-center justify-center animate-role-transition"
+                style={{ 
+                  animation: 'fadeSlide 0.6s ease-in-out',
+                  letterSpacing: '0.1em'
+                }}
+              >
+                {roles[currentRole]}
+              </span>
             </h2>
           </div>
           
