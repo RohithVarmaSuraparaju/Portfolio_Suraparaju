@@ -40,7 +40,7 @@ const HeroSection = () => {
           
           <div className="relative flex items-center justify-center mb-8">
             <h2 className="text-2xl md:text-3xl font-bold dynamic-text">
-              I'M AN AI ENTHUSIAST & DATA ANALYST
+              32+ SKILLS
             </h2>
           </div>
           
